@@ -15,4 +15,4 @@ def PostInfos(request):
         data = request.POST
         device = Device.objects.create(CPU_model=data['cpu_model'],Memory_info=data['memory_information'],System_info=data['system_information'])
         device.save()
-        return render(request, "tables.html")
+        return render(request)
