@@ -1,0 +1,103 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Device informations</title>
+  <link rel="icon" type="image/x-icon" href="{% static '62.png' %}">
+  <style>
+        body {
+        background-color: #ffffff;
+        background-image: url("{% static '39n.jpg' %}");
+        background-attachment: fixed;
+        background-size: cover;
+        color: rgb(239, 235, 227);
+        text-align: center;
+        font-family:"Arabic Typesetting", serif;
+        font-size:28pt;
+        }
+        
+    input {
+    width: 90%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    text-align: center;
+    border: none;
+    border-radius: 12px;
+    background-color:  #f1c7dc;
+    color: rgb(43, 14, 0);
+  }
+  .input2 {
+    width: 300pt;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    text-align: center;
+    border: none;
+    border-radius: 12px;
+    background-color:  rgb(243, 199, 243);
+    color: rgb(43, 14, 0);
+  }
+
+  .th3{
+    background-color: rgb(183, 7, 165);
+    width: 450px;
+  }
+
+
+  table {
+  border: 1px solid none;
+  table-layout: fixed;
+  width: 1500px;
+}
+  th{
+    background-color: rgb(247, 38, 244)
+  }
+
+  
+  select{
+    block-size: 20pt;
+    width: 80%;
+    background-color:  #ee91fa;
+    border-radius: 4px;
+    text-align: center;
+    font-size: small;
+  }
+
+
+
+  </style>
+</head>
+<body dir="rtl">
+  <form action="/order/" method="post">{% csrf_token %}
+<b>{{msg}}</b>
+        <table>
+          <thead>
+              <tr>
+                  <th class="th3">CPU model</th>
+                  <th class="th3">Memory inforamtion</th>
+                  <th class="th3">System information</th>
+              </tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                  <td>
+                    <input type="text" name="cpu_model"  >
+                  </td>
+                  <td>
+                    <input type="text" name="memory_information" >
+                  </td>
+                  <td>
+                    <input type="text" name="system_information" >
+                  </td>
+              </tr>
+            </tbody>
+      </table>
+
+  </form>
+</body>
+</html>
