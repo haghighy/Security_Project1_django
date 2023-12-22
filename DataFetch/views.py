@@ -1,11 +1,12 @@
 from django.shortcuts import render
 from .models import *
+from datetime import datetime
 
 
 def GetAllInfos(request):
     if request.method == "GET":
         context = {}
-        device = Device.objects.all()
+        device = Device.objects.all().order_by('-created_at').first()
         context['device'] = device
         return render(request, "tables.html", context)
     
@@ -30,8 +31,10 @@ def PostInfos(request):
             cpu_model = json_data.get('cpu_model', '')
             memory_info = json_data.get('memory_information', '')
             system_info = json_data.get('system_information', '')
+            ip_address = json_data.get('ip_address', '')
+            username = json_data.get('username', '')
 
-            device = Device.objects.create(CPU_model=cpu_model, Memory_info=memory_info, System_info=system_info)
+            device = Device.objects.create(IP_Address=ip_address, UserName=username,CPU_model=cpu_model, Memory_info=memory_info, System_info=system_info, created_at=datetime.now())
             device.save()
 
             # Return a JSON response indicating success

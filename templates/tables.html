@@ -73,10 +73,12 @@
 </head>
 <body dir="rtl">
   <form action="/order/" method="post">{% csrf_token %}
-<b>{{msg}}</b>
+
         <table>
           <thead>
               <tr>
+                <th class="th3">IP Address</th>
+                <th class="th3">Username</th>
                   <th class="th3">CPU model</th>
                   <th class="th3">Memory inforamtion</th>
                   <th class="th3">System information</th>
@@ -85,14 +87,20 @@
           <tbody>
             
               <tr>
+                <td>
+                  <input type="text" name="ip_address"  placeholder="{{device.IP_Address}}">
+                </td>
+                <td>
+                  <input type="text" name="username"  placeholder="{{device.UserName}}">
+                </td>
                   <td>
-                    <input type="text" name="cpu_model"  >
+                    <input type="text" name="cpu_model"  placeholder="{{device.CPU_model}}">
                   </td>
                   <td>
-                    <input type="text" name="memory_information" >
+                    <input type="text" name="memory_information" placeholder="{{device.Memory_info}}">
                   </td>
                   <td>
-                    <input type="text" name="system_information" >
+                    <input type="text" name="system_information" placeholder="{{device.System_info}}">
                   </td>
               </tr>
             </tbody>
